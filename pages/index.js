@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  return <div className={styles.container}>Hellow world</div>;
+  return <div>Hello world</div>;
 }
