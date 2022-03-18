@@ -4,16 +4,17 @@ export const getStaticProps = async () => {
   const data = await res.json();
 
   return {
-    props: { countries: data },
+    props: { country: data },
   };
 };
 
-const Countries = ({ countries }) => {
+const Countries = ({ country }) => {
+  // console.log(country);
   return (
     <div>
       <h1>All Countries </h1>
-      {countries.map((country) => (
-        <Link href={`countries/${country.id}`} key={country.id}>
+      {country.map((country) => (
+        <Link href={`/countries/${country.name.common}`} key={country.id}>
           <a>
             <h3>{country?.name.common}</h3>
           </a>
