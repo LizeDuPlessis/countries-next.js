@@ -9,12 +9,15 @@ export const getStaticProps = async () => {
 };
 
 const Countries = ({ country }) => {
-  // console.log(country);
+  console.log(country, "COUNTRY");
   return (
     <div>
       <h1>All Countries </h1>
       {country.map((country) => (
-        <Link href={`/countries/${country.name.common}`} key={country.id}>
+        <Link
+          href={`countries/${country?.name.common}`}
+          key={country?.name.common}
+        >
           <a>
             <h3>{country?.name.common}</h3>
           </a>

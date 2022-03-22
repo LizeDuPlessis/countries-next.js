@@ -4,7 +4,7 @@ export const getStaticPaths = async () => {
 
   const paths = data.map((country) => {
     return {
-      params: { id: country.name.common },
+      params: { id: country?.name.common },
     };
   });
 
@@ -30,7 +30,7 @@ const Details = ({ country }) => {
   return (
     <div>
       <h1>All details</h1>
-      <h2>{country[0].capital}</h2>
+      <h2>{country[0].name.common}</h2>
     </div>
   );
 };
