@@ -1,3 +1,4 @@
+import { useState } from "react";
 export const getStaticPaths = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -26,11 +27,26 @@ export const getStaticProps = async (context) => {
 };
 
 const Details = ({ country }) => {
-  console.log(country);
+  const [showInfo, setShowInfo] = useState(false);
+  const handleShowInfo = (e) => {
+    console.log(showInfo);
+    setShowInfo(!showInfo);
+    e.target.value;
+  };
+  // console.log(country);
   return (
     <div>
       <h1>All details</h1>
       <h2>{country[0].name.common}</h2>
+      <div>
+        <img src={country[0].flags.png} width={120} height={100} />
+      </div>
+      <div>
+        <img src={country[0].coatOfArms.png} width={120} height={100} />
+      </div>
+      <h3>{country[0].capital}</h3>
+      <button onClick={handleShowInfo}>More Information</button>
+      {showInfo && <h3>{country[0].capital}</h3>}
     </div>
   );
 };
