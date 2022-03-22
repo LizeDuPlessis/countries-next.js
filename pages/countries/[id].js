@@ -41,12 +41,18 @@ const Details = ({ country }) => {
       <div>
         <img src={country[0].flags.png} width={120} height={100} />
       </div>
-      <div>
-        <img src={country[0].coatOfArms.png} width={120} height={100} />
-      </div>
+      <div></div>
       <h3>{country[0].capital}</h3>
       <button onClick={handleShowInfo}>More Information</button>
-      {showInfo && <h3>{country[0].capital}</h3>}
+      {showInfo && (
+        <>
+          <div>
+            <img src={country[0].coatOfArms.png} width={120} height={100} />
+          </div>
+
+          <h3>Capital: {country[0].capital}</h3>
+        </>
+      )}
     </div>
   );
 };
