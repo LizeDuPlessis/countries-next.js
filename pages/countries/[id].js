@@ -37,8 +37,8 @@ const Details = ({ country }) => {
   };
   // console.log(country);
   return (
-    <div>
-      <h1>All details</h1>
+    <div className={styles.container}>
+      <h1>Information</h1>
       <h2>{country[0].name.common}</h2>
       <div>
         <img src={country[0].flags.png} width={120} height={100} />
@@ -52,9 +52,10 @@ const Details = ({ country }) => {
       {showInfo && (
         <>
           <div>
+            <h4>Coat Of Arms: </h4>
             <img src={country[0].coatOfArms.png} width={120} height={100} />
           </div>
-          <h3>Capital: {country[0].capital}</h3>
+          <h4>Capital: {country[0].capital}</h4>
         </>
       )}
     </div>

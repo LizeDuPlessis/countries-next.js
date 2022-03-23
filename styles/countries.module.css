@@ -7,3 +7,25 @@
   color: white;
   text-align: center;
 }
+.container {
+  text-align: center;
+  font-size: 1.5em;
+  color: rgb(112, 25, 108);
+}
+.countrytext:hover {
+  color: rgb(112, 25, 108);
+}
+
+.inputgroup {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 1em;
+  text-align: center;
+  color: rgb(112, 25, 108);
+}
+.inputgroup :hover {
+  border: none;
+  border-bottom: 2px solid rgb(112, 25, 108);
+}

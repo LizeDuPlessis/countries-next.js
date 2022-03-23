@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
+import styles from "../../styles/countries.module.css";
+
 export const getStaticProps = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -28,10 +30,11 @@ const Countries = ({ country }) => {
   );
 
   return (
-    <>
+    <div className={styles.container}>
       {searchCountry}
       <form>
         <input
+          className={styles.inputgroup}
           type="search"
           placeholder="Search Country"
           onChange={handleSearch}
@@ -50,15 +53,20 @@ const Countries = ({ country }) => {
               key={country?.name.common}
             >
               <a>
-                <h3>{country?.name.common}</h3>
+                <h3 className={styles.countrytext}>{country?.name.common}</h3>
               </a>
             </Link>
           ))
         ) : (
-          <h1>Sorry try again!</h1>
+          <>
+            <h3>Sorry! Try again!</h3>
+            <Link href="/">
+              <a className={styles.btn}>Go Home</a>
+            </Link>
+          </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
