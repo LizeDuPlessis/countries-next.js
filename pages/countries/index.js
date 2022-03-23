@@ -22,9 +22,6 @@ const Countries = ({ country }) => {
     setSubmitBtn(searchCountry);
     e.preventDefault();
   };
-  // const filteredCurrencies = currencies.filter((coin) =>
-  //   coin.name.toLowerCase().includes(searched.toLowerCase())
-  // );
 
   const filteredCountries = country.filter((country) =>
     country?.name.common.toLowerCase().includes(submitBtn.toLowerCase())
