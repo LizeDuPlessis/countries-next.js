@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "../../styles/countries.module.css";
+
 export const getStaticPaths = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -41,15 +43,17 @@ const Details = ({ country }) => {
       <div>
         <img src={country[0].flags.png} width={120} height={100} />
       </div>
-      <div></div>
-      <h3>{country[0].capital}</h3>
-      <button onClick={handleShowInfo}>More Information</button>
+      <div>
+        <button className={styles.btn} onClick={handleShowInfo}>
+          More Information
+        </button>
+      </div>
+
       {showInfo && (
         <>
           <div>
             <img src={country[0].coatOfArms.png} width={120} height={100} />
           </div>
-
           <h3>Capital: {country[0].capital}</h3>
         </>
       )}
